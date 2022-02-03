@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from cgi import print_directory
 from importlib.resources import path
 from re import search
 from typing import Mapping
@@ -23,10 +24,6 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
     pass
-def calculate_age(birthdate):
-    today = date.today()
-    age= today.year - birthdate.year - ((today.month, today.day) - (birthdate.month, birthdate.day))
-    return age
 
 def wishMe():                             
     '''defining wishMe() for Assistant to greet according to time'''
@@ -56,8 +53,8 @@ def takeCommand():
     return query
 
 if __name__ == "__main__":
-    speak("Activating Console!!")
     timenow=datetime.datetime.now().strftime("%H:%M:%S")
+    speak("Activating Console!!")
     speak(f"Activation Time {timenow}")
     speak("Please select, Voice Command or Text Command")
     inpfr=input("Voice Command or Text Command\n")
@@ -141,7 +138,52 @@ if __name__ == "__main__":
                 speak("Okay! Opening Email")
                 webbrowser.open("https://mail.google.com/mail/u/0/#inbox?compose=new")
                 
-            
+            elif 'good morning' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=3 and hour<12:
+                    speak("Good Morning.")
+                    speak("what can i do for you sir")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    speak(f"Well, it's {timenow}")
+                    speak("by the way Good morning sir")
+                    speak("please tell me how can i help you")
+
+            elif 'good afternoon' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=12 and hour<18:
+                    speak("Good Afternoon.")
+                    speak("what can i do for you sir")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    speak(f"Well, it's {timenow}")
+                    speak("by the way Good Afternoon sir")
+                    speak("please tell me how can i help you")
+
+            elif 'good evening' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=18:
+                    speak("Good Evening.")
+                    speak("what can i do for you sir")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    speak(f"Well, it's {timenow}")
+                    speak("by the way Good Evening sir")
+                    speak("please tell me how can i help you")
+
+            elif 'good Night' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=18:
+                    speak("Okay bye sir, Good Night sweet dreams")
+                    break
+
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    speak(f"Well, it's {timenow}")
+                    speak("by the way Good Night sir")
+                    break
+
+                    
             # elif '' in query:
             #     engine.runAndWait()
 
@@ -168,11 +210,8 @@ if __name__ == "__main__":
                 speak(result)
         
             elif 'what is your name' in query:
+                print("I am your virtual Assistant Shirley.")
                 speak("I am your virtual Assistant Shirley.")
-            
-            elif 'how old are you' in query:
-                age=calculate_age(2021,1,2)
-                speak(f"I am {age} days old")
                 
 
             elif 'youtube' in query:
@@ -240,6 +279,69 @@ if __name__ == "__main__":
                 speak("Here are some results from google")
                 webbrowser.open(f"https://www.google.com/search?q={query}&sxsrf=APq-WBtgnhxglCPeSjYuXSjbcJmvw2eHTA%3A1643545268919&source=hp&ei=tIL2YbbtNd6H4-EPsv6isAM&iflsig=AHkkrS4AAAAAYfaQxFz1vh4c7fLpzfaZfHq5BTqGCVOB&ved=0ahUKEwi2l7Kfu9n1AhXewzgGHTK_CDYQ4dUDCAc&uact=5&oq=kite&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAEIAEELEDMggIABCABBCxAzIICAAQgAQQsQMyCAguEIAEELEDMggILhCABBCxAzIICAAQgAQQsQMyBQgAEIAEMggILhCABBCxAzIICAAQgAQQsQMyBQgAELEDOgcIIxDqAhAnOgcILhDqAhAnOgQIIxAnOgUILhCABDoLCAAQgAQQsQMQgwE6CwguEIAEEMcBEKMCOgsILhCABBCxAxCDAVDrB1jYC2CYEGgBcAB4AIAB6AGIAcoFkgEFMC4zLjGYAQCgAQGwAQo&sclient=gws-wiz")
                 
+            elif 'good morning' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=3 and hour<12:
+                    print("Assistant: Good Morning.")
+                    speak("Good Morning.")
+                    print("Assistant: what can i do for you sir")
+                    speak("what can i do for you sir")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    print(f"Assistant: Well, it's {timenow}")
+                    speak(f"Well, it's {timenow}")
+                    print("Assistant: by the way Good morning sir")
+                    speak("by the way Good morning sir")
+                    print("Assistant: please tell me how can i help you")
+                    speak("please tell me how can i help you")
+
+            elif 'good afternoon' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=12 and hour<18:
+                    print("Assistant: Good Afternoon.")
+                    speak("Good Afternoon.")
+                    print("Assistant: what can i do for you sir")
+                    speak("what can i do for you sir")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    print(f"Assistant: Well, it's {timenow}")
+                    speak(f"Well, it's {timenow}")
+                    print("Assistatn: by the way Good Afternoon sir")
+                    speak("by the way Good Afternoon sir")
+                    print("Assistant: please tell me how can i help you")
+                    speak("please tell me how can i help you")
+
+            elif 'good evening' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=18:
+                    print("Assistant: Good Evening")
+                    speak("Good Evening.")
+                    print("Assistant: please tell me how can i help you")
+                    speak("please tell me how can i help you")
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    print(f"Assistant: Well, it's {timenow}")
+                    speak(f"Well, it's {timenow}")
+                    print("Assistant: by the way Good Evening sir")
+                    speak("by the way Good Evening sir")
+                    print("Assistant: please tell me how can i help you")
+                    speak("please tell me how can i help you")
+
+            elif 'good night' in  query:
+                hour = int(datetime.datetime.now().hour)
+                if hour>=18:
+                    print("Assistant: Okay bye sir, Good Night sweet dreams")
+                    speak("Okay bye sir, Good Night sweet dreams")
+                    break
+
+                else:
+                    timenow=datetime.datetime.now().strftime("%H:%M:%S")
+                    print(f"Assistant: Well, it's {timenow}")
+                    speak(f"Well, it's {timenow}")
+                    print("Assistant: By the way Good Night sir")
+                    speak("by the way Good Night sir")
+                    break
+
             elif 'ok bye' in query:
                 break
             
