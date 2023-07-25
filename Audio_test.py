@@ -5,6 +5,7 @@ import speech_recognition as SR
 from Assist import takeCommand
 import pyaudio
 engine = pyttsx3.init('sapi5')
+import datetime
 voices = engine.getProperty('voices')
 
 engine.setProperty('voice', voices[2].id)
@@ -29,18 +30,19 @@ def takecmd():
         return None
     return query
 
-# if __name__ == '__main__':
-#     Store = takecmd().lower()
-#     if 'hello' or 'Hii' in Store:
-#         speak("Hi! Abhi! How are you")
-#         mssg=takecmd().lower()
-#         if 'I am fine' in mssg:
-#             speak("Great!, Tell me how can i do for you")
-#         elif 'I am not good' in mssg:
-#             speak("Ooh Sorry!, I am gonna play some songs that will help you to feel better")
-for voice in voices:
-    print(voice)
-    speak(voice.name)
+if __name__ == '__main__':
+    query = takecmd().lower()
+    if 'Good morning' in query:
+        speak("Good Morning Abhishek")
+        speak("Tell me how can I help you")
+    # elif 'What day is today' in Store:
+        # now=datetime.datetime.now()
+        # speak(f"It's {now}")
+
+
+# for voice in voices:
+#     print(voice)
+#     speak(voice.name)
             
             
     
