@@ -3,13 +3,8 @@
 
 <head>
   <style>
-    body {
-      font-family: "Arial", sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-    }
 
+    
     h1 {
       color: #007bff;
     }
