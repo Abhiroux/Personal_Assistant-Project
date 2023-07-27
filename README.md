@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <title>Real-Time Speech Recognition and Response Program with Deep Learning</title>
   <style>
     body {
       font-family: "Arial", sans-serif;
