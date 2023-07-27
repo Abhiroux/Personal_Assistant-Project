@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <style>
-
     
     h1 {
       color: #007bff;
@@ -67,7 +61,7 @@
     .badge-red {
       background-color: #dc3545;
     }
-  </style>
+
 </head>
 
 <body>
