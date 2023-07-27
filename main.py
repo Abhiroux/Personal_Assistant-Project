@@ -49,7 +49,7 @@ class Assistant:
             'assist_intro': AssistantIntro,
             'open spotify':openSpotify,
             'well_being': well_being(text),
-            'play_youtube': YoutubePlayer(text)
+            'play_music': play_music
         }
         reply_func = replies[intent]
         if callable(reply_func):

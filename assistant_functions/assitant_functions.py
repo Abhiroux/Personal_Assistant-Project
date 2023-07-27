@@ -65,5 +65,12 @@ def send_email():
     speak("Okay! Opening Email")
     webbrowser.open("https://mail.google.com/mail/u/0/#inbox?compose=new")
 
+def play_music():
+    music_dr = 'F:\My Music World\Audios'
+    songs=os.listdir(music_dr)
+    player = random.choice(songs)
+    os.startfile(os.path.join(music_dr, player)) 
+
+
 
 

@@ -29,5 +29,5 @@ tell me about today's weather,weather
 how is the temperature,weather
 is it hot today?,weather
 send email,send_email
-play vande mataram,play_youtube
-play mahesh dalle,play_youtube
+play music,play_music
+play songs,play_music

@@ -10,7 +10,7 @@ import pywhatkit                            #importing pywhatkit module for play
 import os                                   #importing os module for system file access
 import random                               #using random moudle for random selection of any data
 from datetime import date
-from AppOpener import open,close
+from AppOpener import open
 
 engine = pyttsx3.init('sapi5')              #sapi5 is a microsoft speech API for voice recognition
 voices = engine.getProperty('voices')       #Assiging voices that available in device
@@ -76,7 +76,8 @@ def voice_mode():
 
     elif 'play on youtube' in query:
         query = query.replace("play", "")
-        query = query.replace("on youtube", "")
+        query = query.replace("on","")
+        query = query.replace("youtube", "")
         speak(f"playing {query}")
         pywhatkit.playonyt(query)
 
